@@ -1,0 +1,5 @@
+ul {
+    display: flex; /*Crea un contenedor de flex para la lista */
+    list-style: none; /*Elimina los puntos de la lista*/
+    
+}
