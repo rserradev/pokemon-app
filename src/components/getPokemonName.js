@@ -9,6 +9,3 @@ export const getPokemonByName = async (pokemonName) => {
   const pokemon = await pokemonApi(pokemonName)
   return pokemon
 }
-
-const pokemonName = await getPokemonByName('/bulbasaur')
-console.log(pokemonName)
