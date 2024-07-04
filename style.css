@@ -1,5 +1,32 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 ul {
     display: flex; /*Crea un contenedor de flex para la lista */
     list-style: none; /*Elimina los puntos de la lista*/
-    
+}
+
+header {
+    background-color: #FFCD0D;
+    height: 50px;
+    width: 100%;
+}
+
+h1 {
+    margin: auto;
+}
+
+.div-search {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.input-search {
+    margin: 20px;
 }
