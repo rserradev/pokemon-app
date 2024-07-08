@@ -1,6 +1,7 @@
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
-const pokemonApi = async(param) => {
+// Obtener los datos del API y aumentar el offset en 20 para obtener los siguientes datos
+const pokemonApi = async(param = "/") => {
     // Obtener los datos del API
     try {
         const response = await fetch(baseUrl + param)

@@ -3,7 +3,7 @@ import {getPokemonByName, getPokemonNames} from "./components/getPokemonName"
 // Crear opciones para el select de Pokemon
 export const pokemonOptionList = async () => {
   const pokemonNames = await getPokemonNames()
-  const selectPokemon = document.querySelector('#select-pokemon')
+  const selectPokemon = document.querySelector('#datalist-pokemon')
   
   pokemonNames.forEach(name => {
     const option = document.createElement('option')
@@ -14,8 +14,9 @@ export const pokemonOptionList = async () => {
 }
 
 const btnSearch = document.querySelector('#btn-search')
+
 btnSearch.addEventListener('click', async () => {
-  const valueInputSearch = document.querySelector('#input-search').value
+  const valueInputSearch = document.querySelector('#input-search').value.toLowerCase()
   const pokemon =  await getPokemonByName(valueInputSearch)
   const pokemonList = document.querySelector('#pokemon-list')
   
