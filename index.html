@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/pokemon-app/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon App</title>
-    <script type="module" crossorigin src="/pokemon-app/assets/index-CjRMkBmJ.js"></script>
+    <script type="module" crossorigin src="/pokemon-app/assets/index-BRyYscEr.js"></script>
     <link rel="stylesheet" crossorigin href="/pokemon-app/assets/index-hvz6pYDY.css">
   </head>
   <body>
@@ -16,13 +16,16 @@
     </header>
     <div>
       <div class="div-search">
-        <select id="select-pokemon">
+        <input id="input-search" list="pokemon-list" placeholder="Search Pokemon..." />
+        <datalist id="pokemon-list">
           <!-- Options -->
-        </select>
-        <input id="input-search" type="text" placeholder="Search..." />
+        </datalist>
         <button id="btn-search" type="button">Search</button>
+        <button id="btn-clean" type="button">Clean all</button>
       </div>
-      <div id="pokemon-list">
+      <!-- Pokemon List -->
+      <div id="pokemon-details">
+
       </div>
     </div>
   </body>
