@@ -40,3 +40,5 @@ btnClean.addEventListener('click', () => {
   const pokemonList = document.querySelector('#pokemon-details')
   pokemonList.innerHTML = ''
 })
+
+// Add comment for test branch
