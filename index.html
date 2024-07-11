@@ -14,16 +14,16 @@
     </header>
     <div>
       <div class="div-search">
-        <select id="select-pokemon">
-          <!-- Options -->
-        </select>
-        <input id="input-search" type="search" placeholder="Search..." />
-        <datalist id="datalist-pokemon">
+        <input id="input-search" list="pokemon-list" placeholder="Search Pokemon..." />
+        <datalist id="pokemon-list">
           <!-- Options -->
         </datalist>
         <button id="btn-search" type="button">Search</button>
+        <button id="btn-clean" type="button">Clean all</button>
       </div>
-      <div id="pokemon-list">
+      <!-- Pokemon List -->
+      <div id="pokemon-details">
+
       </div>
     </div>
     <script type="module" src="/main.js"></script>
