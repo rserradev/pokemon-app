@@ -30,3 +30,10 @@ h1 {
 .input-search {
     margin: 20px;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    border-color: gray;
+}

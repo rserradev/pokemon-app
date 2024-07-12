@@ -15,11 +15,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       option.text = name
       selectPokemon.appendChild(option)
     })
-  })
+})
 
 
 btnSearch.addEventListener('click', async () => {
-  const valueInputSearch = document.querySelector('#input-search').value.toLowerCase()
   const pokemon =  await getPokemonByName(valueInputSearch)
   const pokemonList = document.querySelector('#pokemon-details')
   
@@ -33,12 +32,27 @@ btnSearch.addEventListener('click', async () => {
   image.src = pokemon.sprites.front_default
   pokemonList.appendChild(h1)
   pokemonList.appendChild(image)
+
+  
 })
 
-// Limpiar todos los Pokemon
+// Evento para limpiar la data de los Pokemon
 btnClean.addEventListener('click', () => {
   const pokemonList = document.querySelector('#pokemon-details')
   pokemonList.innerHTML = ''
 })
 
-// Add comment for test branch
+// TODO: Funcion para llenar la tabla con los datos del Pokemon
+const createTable = async (pokemonName) => {
+  const valueInputSearch = document.querySelector('#input-search').value.toLowerCase()
+  const table = document.createElement('table')
+  const divPokemonDetails = document.querySelector('#pokemon-details')
+  
+  const pokemon =  await getPokemonByName(pokemonName)
+  const {id, name, types, abilities} = pokemon
+
+  return types[0].type.name
+}
+
+const poke = await createTable('pikachu')
+console.log(poke)
