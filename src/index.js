@@ -1,4 +1,6 @@
 import {getPokemonByName, getPokemonNames} from "./components/getPokemonName"
+import { fetchPokemonByName } from "./api/pokemonApi"
+import { getSprite } from "./components/render-image/render-image"
 
 // Botones de búsqueda y limpieza
 const btnSearch = document.querySelector('#btn-search')
@@ -19,20 +21,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 btnSearch.addEventListener('click', async () => {
-  const pokemon =  await getPokemonByName(valueInputSearch)
-  const pokemonList = document.querySelector('#pokemon-details')
-  
-  if (valueInputSearch === '' ) {
-    return
-  }
+  const pokemonValue = document.querySelector('#input-search').value
+  const pokemon = await getSprite(pokemonValue)
 
-  const h1 = document.createElement('h1')
-  const image = document.createElement('img')
-  h1.textContent = pokemon.id + ' - ' + pokemon.name
-  image.src = pokemon.sprites.front_default
-  pokemonList.appendChild(h1)
-  pokemonList.appendChild(image)
+  // if (pokemonValue === '') {
+  //   return
+  // }
 
+  const img = document.createElement('img')
+  img.src = pokemon
+  document.querySelector('#pokemon-image').appendChild(img)
+
+  console.log(pokemonValue)
+  console.log({pokemon})
+  console.log(img)
   
 })
 
@@ -42,17 +44,27 @@ btnClean.addEventListener('click', () => {
   pokemonList.innerHTML = ''
 })
 
-// TODO: Funcion para llenar la tabla con los datos del Pokemon
-const createTable = async (pokemonName) => {
-  const valueInputSearch = document.querySelector('#input-search').value.toLowerCase()
-  const table = document.createElement('table')
-  const divPokemonDetails = document.querySelector('#pokemon-details')
-  
-  const pokemon =  await getPokemonByName(pokemonName)
-  const {id, name, types, abilities} = pokemon
-
-  return types[0].type.name
+var options = {
+  chart: {
+    type: 'radar'
+  },
+  series: [
+    {
+    name: 'Pikachu',
+    data: [10,20,30,40,50]
+    }
+  ],
+  dataLabels: {
+      enabled: true
+  },
+  xaxis: {
+      categories: ['HP', 'Attack', 'Defense', 'Special Attack', 'Special Defense'],
+  },
+  yaxis: {
+    show: false
+  }
 }
 
-const poke = await createTable('pikachu')
-console.log(poke)
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
